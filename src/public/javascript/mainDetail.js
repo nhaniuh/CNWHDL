@@ -81,6 +81,9 @@ let id = check.getAttribute('data-id')
 let id_user = localStorage.getItem('idUser')
 let quantity = document.querySelector('#quantity')
 addCart.addEventListener('click', async () => {
+  if (!token){
+    return window.location.href = '/login'
+  }
   try {
     const response = await fetch('/addCart', {
       method: 'PUT',
